@@ -1,0 +1,18 @@
+{
+  "Version": "0.0.1",
+  "Server": {
+    "Name": "user.rpc.server",
+    "RateLimit": 1000
+  },
+  "Etcd": {
+    "Address": [
+      "192.168.33.16:2379"
+    ],
+    "UserName": "",
+    "Password": ""
+  },
+  "Engine": {
+    "Name": "mysql",
+    "DataSource": "root:123456@tcp(192.168.33.16:3306)/members?charset=utf8&parseTime=True&loc=Local"
+  }
+}

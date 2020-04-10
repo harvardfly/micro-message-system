@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+//protoc --proto_path=. --micro_out=. --go_out=. user.proto
+
+message FindByTokenRequest {
+    string token = 1;
+}
+
+message FindByIdRequest {
+    int64 id = 1;
+}
+
+message UserResponse {
+    int64 id = 1;
+    string token = 2;
+    string username = 3;
+    string password = 4;
+}
+
+service User {
+    rpc FindByToken (FindByTokenRequest) returns (UserResponse) {
+    }
+
+    rpc FindById (FindByIdRequest) returns (UserResponse) {
+    }
+}
