@@ -26,6 +26,8 @@ github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWX
 github.com/Shopify/sarama v1.25.0 h1:ch1ywjRLjfJtU+EaiJ+l0rWffQ6TRpyYmW4DX7Cb2SU=
 github.com/Shopify/sarama v1.25.0/go.mod h1:y/CFFTO9eaMTNriwu/Q+W4eioLqiDMGkA1W+gmdfj8w=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
+github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5 h1:rFw4nCn9iMW+Vajsk51NtYIcwSTkXr+JGrMd36kTDJw=
+github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5/go.mod h1:SkGFH1ia65gfNATL8TAiHDNxPzPdmEL5uirI2Uyuz6c=
 github.com/akamai/AkamaiOPEN-edgegrid-golang v0.9.0/go.mod h1:zpDJeKyp9ScW4NNrbdr+Eyxvry3ilGPewKoXw3XGN1k=
 github.com/alangpierce/go-forceexport v0.0.0-20160317203124-8f1d6941cd75 h1:3ILjVyslFbc4jl1w5TWuvvslFD/nDfR2H8tVaMVLrEY=
 github.com/alangpierce/go-forceexport v0.0.0-20160317203124-8f1d6941cd75/go.mod h1:uAXEEpARkRhCZfEvy/y0Jcc888f9tHCc1W7/UeEtreE=
@@ -120,6 +122,7 @@ github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm
 github.com/gin-gonic/gin v1.6.2 h1:88crIK23zO6TqlQBt+f9FrPJNKm9ZEr7qjp9vl/d5TM=
 github.com/gin-gonic/gin v1.6.2/go.mod h1:75u5sXoLsGZoRN5Sgbi1eraJ4GU3++wFwWzhwvtwp4M=
 github.com/gliderlabs/ssh v0.2.2/go.mod h1:U7qILu1NlMHj9FlMhZLlkCdDnU1DBEAqr0aevW3Awn0=
+github.com/go-acme/lego/v3 v3.1.0 h1:yanYFoYW8azFkCvJfIk7edWWfjkYkhDxe45ZsxoW4Xk=
 github.com/go-acme/lego/v3 v3.1.0/go.mod h1:074uqt+JS6plx+c9Xaiz6+L+GBb+7itGtzfcDM2AhEE=
 github.com/go-cmd/cmd v1.0.5/go.mod h1:y8q8qlK5wQibcw63djSl/ntiHUHXHGdCkPk0j4QeW4s=
 github.com/go-errors/errors v1.0.1/go.mod h1:f4zRHt4oKfwPJE5k8C9vpYG+aDHdBFUsgrm6/TyX73Q=
@@ -290,6 +293,8 @@ github.com/micro/go-plugins/broker/kafka v0.0.0-20200119172437-4fe21aa238fd h1:h
 github.com/micro/go-plugins/broker/kafka v0.0.0-20200119172437-4fe21aa238fd/go.mod h1:RjsEqOUUHvZXr0JV86SAaI13qRSYWoDOWtfRDmi8O14=
 github.com/micro/go-plugins/registry/etcdv3 v0.0.0-20200119172437-4fe21aa238fd h1:oTqvYym0IwWVtewAECorh11cgymZb9AFR7xfdI93waQ=
 github.com/micro/go-plugins/registry/etcdv3 v0.0.0-20200119172437-4fe21aa238fd/go.mod h1:GMrkmYoxDWgof79v3A7ipnRxQaMybZ0WJrVJxpXA7Jo=
+github.com/micro/go-plugins/wrapper/breaker/hystrix v0.0.0-20200119172437-4fe21aa238fd h1:Eb069S90V831jW0mEyzul5D7RwyLSbY/EgrwLRfC6E8=
+github.com/micro/go-plugins/wrapper/breaker/hystrix v0.0.0-20200119172437-4fe21aa238fd/go.mod h1:csTzCS+fhYRYcAOF9NQEn6NxafX0aDLZA6VeCCQLrnI=
 github.com/micro/go-plugins/wrapper/ratelimiter/ratelimit v0.0.0-20200119172437-4fe21aa238fd h1:L7ail/aqOTYjkDx4dT25SQZQP9s5EOj6FZFRGLfsaIQ=
 github.com/micro/go-plugins/wrapper/ratelimiter/ratelimit v0.0.0-20200119172437-4fe21aa238fd/go.mod h1:SefON+3udrq7ySVSlQekeZ4DrLyq28R7mT1VL3hFT6k=
 github.com/micro/mdns v0.3.0 h1:bYycYe+98AXR3s8Nq5qvt6C573uFTDPIYzJemWON0QE=

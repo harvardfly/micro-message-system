@@ -61,3 +61,24 @@ cd imserver/cmd/
 go run imconsumer/im_server.go -f ./config/config_im_1.json
 go run imconsumer/im_server.go -f ./config/config_im_2.json
 ```
+
+## 网关API-gateway 需token认证并调用userservice和imservice
+### 调用rpc发送消息到kafka(/send)
+```$xslt
+cd /userserver/cmd/rpc
+go run user_rpc.go -f ../config/config_rpc.json
+
+cd imserver/cmd/
+go run rpcproducer/im_rpc.go
+
+cd gateway/cmd
+go run api/gateway_api.go
+```
+### 获取并绑定用户与IM服务地址(/address)
+```$xslt
+cd /userserver/cmd/rpc
+go run user_rpc.go -f ../config/config_rpc.json
+
+cd gateway/cmd
+go run api/gateway_api.go
+```
