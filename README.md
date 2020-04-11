@@ -15,9 +15,15 @@
 
 ## 系统模块
 ```$xslt
-1. 用户服务
-2. 网关
-3. IM服务
+1. 用户服务:
+    用户API服务 - 用户注册登录
+    用户RPC服务 - 用户鉴权 网关gate调用
+2. IM服务：
+    IM消息发送服务 - produce消息到kafka 网关gate调用
+    IM消息订阅服务 - 订阅kafka消息供websocket展示
+3. 网关：
+    调用rpc发送消息到kafka
+    获取并绑定用户与IM websocket服务地址
 ```
 
 ## 系统环境要求
