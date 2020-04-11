@@ -24,6 +24,9 @@
 3. 网关：
     调用rpc发送消息到kafka
     获取并绑定用户与IM websocket服务地址
+  
+系统架构图：
+![Image text](https://github.com/harvardfly/micro-message-system/blob/master/docs/IM%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg) 
 ```
 
 ## 系统环境要求
