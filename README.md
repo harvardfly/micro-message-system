@@ -26,7 +26,7 @@ golang >= 1.14
 protoc >= 3.6.1
 ```
 
-## userservice
+## 用户服务-userservice
 ### 生成pb
 ```$xslt
 cd userserver/protos
@@ -41,4 +41,18 @@ go run user_rpc.go -f ../config/config_rpc.json
 ```$xslt
 cd /userserver/cmd/api
 go run user_api.go -f ../config/config_api.json
+```
+
+## IM通信服务-imservice
+### 启动kafka消息推送rpc服务 供网关gateway调用
+```$xslt
+cd /imserver/cmd/
+go run rpcproducer/im_rpc.go
+```
+
+### 启动kafka消息订阅消费者服务(进程) 订阅kafka消息推送到websocket
+```$xslt
+cd /imserver/cmd/
+go run imconsumer/im_server.go -f ./config/config_im_1.json
+go run imconsumer/im_server.go -f ./config/config_im_2.json
 ```
