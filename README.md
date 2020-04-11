@@ -44,15 +44,20 @@ go run user_api.go -f ../config/config_api.json
 ```
 
 ## IM通信服务-imservice
+### 生成pb
+```$xslt
+cd imserver/protos
+protoc --proto_path=. --micro_out=. --go_out=. im.proto
+```
 ### 启动kafka消息推送rpc服务 供网关gateway调用
 ```$xslt
-cd /imserver/cmd/
+cd imserver/cmd/
 go run rpcproducer/im_rpc.go
 ```
 
 ### 启动kafka消息订阅消费者服务(进程) 订阅kafka消息推送到websocket
 ```$xslt
-cd /imserver/cmd/
+cd imserver/cmd/
 go run imconsumer/im_server.go -f ./config/config_im_1.json
 go run imconsumer/im_server.go -f ./config/config_im_2.json
 ```
