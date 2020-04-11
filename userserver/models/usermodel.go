@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -14,8 +13,8 @@ type (
 		Token      string    `json:"token" gorm:"varchar(11) notnull 'token'"`
 		Username   string    `json:"username" gorm:"varchar(60) notnull 'username'"`
 		Password   string    `json:"password" gorm:"varchar(60) notnull 'password'"`
-		CreateTime time.Time `json:"createTime" gorm:"DateTime 'create_time'"`
-		UpdateTime time.Time `json:"updateTime" gorm:"DateTime 'update_time'"`
+		CreateTime *time.Time `json:"create_time" gorm:"create_time"`
+		UpdateTime *time.Time `json:"update_time" gorm:"update_time"`
 	}
 	MembersModel struct {
 		mysql *gorm.DB
@@ -47,7 +46,6 @@ func (m *MembersModel) FindById(id int64) (*Members, error) {
 
 func (m *MembersModel) FindByUserName(userName string) (*Members, error) {
 	member := new(Members)
-	fmt.Println(userName)
 	err := m.mysql.Where("username=?", userName).First(member).Error
 	if err != nil {
 		return nil, err

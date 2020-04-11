@@ -15,7 +15,30 @@
 
 ## 系统模块
 ```$xslt
-1. 网关
-2. 用户服务
+1. 用户服务
+2. 网关
 3. IM服务
+```
+
+## 系统环境要求
+```$xslt
+golang >= 1.14
+protoc >= 3.6.1
+```
+
+## userservice
+### 生成pb
+```$xslt
+cd userserver/protos
+protoc --proto_path=. --micro_out=. --go_out=. user.proto
+```
+### 启动user rpc服务
+```$xslt
+cd /userserver/cmd/rpc
+go run user_rpc.go -f ../config/config_rpc.json
+```
+### 启动user api
+```$xslt
+cd /userserver/cmd/api
+go run user_api.go -f ../config/config_api.json
 ```

@@ -5,8 +5,8 @@ create table members.members
     token       varchar(60) default ''                not null,
     username    varchar(60)                           not null,
     password    varchar(60)                           not null,
-    create_time timestamp   default CURRENT_TIMESTAMP not null,
-    update_time timestamp   default CURRENT_TIMESTAMP not null,
+    create_time timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    update_time timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
     constraint token
         unique (token)
 );

@@ -83,8 +83,8 @@ func (l *UserLogic) Register(r *RegisterRequest) (*RegisterResponse, error) {
 		Username: r.Username,
 		Password: fmt.Sprintf("%x", md5.Sum([]byte(r.Password))),
 	}
-	mem, err := l.userModel.FindByUserName(member.Username)
-	if mem != nil || err != nil {
+	mem, _ := l.userModel.FindByUserName(member.Username)
+	if mem != nil {
 		return nil, ExistsUserErr
 	}
 	if _, err := l.userModel.InsertMember(member); err != nil {

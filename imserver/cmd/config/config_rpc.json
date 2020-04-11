@@ -1,0 +1,30 @@
+{
+  "Version": "0.0.1",
+  "Topic": "im_message_exchange",
+  "Server": {
+    "Name": "im.rpc.server"
+  },
+  "Etcd": {
+    "Address": [
+      "192.168.33.16:2379"
+    ],
+    "UserName": "",
+    "Password": ""
+  },
+  "ImServerList": [
+    {
+      "KafkaAddress": [
+        "192.168.33.16:9092"
+      ],
+      "Topic": "im.server.1",
+      "ServerName": "im.server.1"
+    },
+    {
+      "KafkaAddress": [
+        "192.168.33.16:9092"
+      ],
+      "Topic": "im.server.2",
+      "ServerName": "im.server.2"
+    }
+  ]
+}
