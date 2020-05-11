@@ -90,3 +90,8 @@ go run user_rpc.go -f ../config/config_rpc.json
 cd gateway/cmd
 go run api/gateway_api.go
 ```
+
+## docker 方式运行
+```$xslt
+详见 docker目录
+```

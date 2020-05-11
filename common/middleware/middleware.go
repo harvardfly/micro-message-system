@@ -28,6 +28,7 @@ func ValidAccessToken(context *gin.Context) {
 	token, err := jwt.Parse(authorization, func(token *jwt.Token) (i interface{}, e error) {
 		return []byte(UserSignedKey), nil
 	})
+
 	if err != nil {
 		if err, ok := err.(*jwt.ValidationError); ok {
 			if err.Errors&jwt.ValidationErrorMalformed != 0 {

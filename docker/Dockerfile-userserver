@@ -1,0 +1,6 @@
+FROM golang
+
+WORKDIR /src
+
+COPY . .
+ CMD go run /src/userserver/cmd/rpc/user_rpc.go -f /src/userserver/cmd/config/config_rpc.json

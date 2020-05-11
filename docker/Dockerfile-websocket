@@ -1,0 +1,7 @@
+FROM golang
+
+WORKDIR /src
+
+EXPOSE 7272
+COPY . .
+ CMD go run /src/imserver/cmd/imconsumer/im_server.go -f /src/imserver/cmd/config/config_im_1.json

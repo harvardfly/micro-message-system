@@ -67,21 +67,25 @@ func main() {
 		micro.Flags(userRpcFlag),
 	)
 	rpcService.Init()
-	// 创建用户服务客户端 直接可以通过它调用user prc的服务
+
+	// 创建用户服务客户端 直接可以通过它调用user rpc的服务
 	userRpcModel := userProto.NewUserService(conf.UserRpcServer.ServerName, rpcService.Client())
+
 	// 创建IM服务客户端 直接可以通过它调用im prc的服务
 	imRpcModel := imProto.NewImService(conf.ImRpcServer.ServerName, rpcService.Client())
+
 	gateWayModel := models.NewGateWayModel(engineGateWay)
-	// 把用户服务的客户端注册到网关
+
+	// 把用户服务客户端、IM服务客户端 注册到网关
 	gateLogic := logic.NewGateWayLogic(userRpcModel, gateWayModel, conf.ImRpcServer.ImServerList, imRpcModel)
 	gateWayController := controller.NewGateController(gateLogic)
+	// web.NewService会在启动web server的同时将rpc服务注册进去
 	service := web.NewService(
 		web.Name(conf.Server.Name),
 		web.Registry(etcdRegisty),
 		web.Version(conf.Version),
 		web.Flags(userRpcFlag),
 		web.Address(conf.Port),
-		web.Flags(userRpcFlag),
 	)
 	router := gin.Default()
 

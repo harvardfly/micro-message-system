@@ -1,0 +1,32 @@
+version: "3.4"
+
+x-volumes:
+  &project-home-dir
+    .:/src
+
+x-volumes:
+  &web-vol
+  - *project-home-dir
+
+services:
+  userserver:
+    image: micro_userserver:latest
+    restart: always
+
+  imserver:
+    image: micro_imserver:latest
+    restart: always
+
+  websocket:
+    image: micro_websocket:latest
+    restart: always
+
+  web:
+    image: micro_gateway:latest
+    ports:
+      - "8081:8081"
+    volumes: *web-vol
+    restart: always
+    depends_on:
+      - userserver
+      - imserver

@@ -1,0 +1,6 @@
+FROM golang
+
+WORKDIR /src
+
+COPY . .
+ CMD go run /src/imserver/cmd/rpcproducer/im_rpc.go -f /src/imserver/cmd/config/config_rpc.json

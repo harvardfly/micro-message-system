@@ -65,6 +65,9 @@ func NewGateWayLogic(userRpcModel userProto.UserService,
 }
 
 func (l *GateWayLogic) Send(r *SendRequest) (*SendResponse, error) {
+	/*
+	1. 调用用户服务
+	*/
 	// 调用用户服务检查发送给的那个用户token是否存在
 	if _, err := l.userRpcModel.FindByToken(context.TODO(), &userProto.FindByTokenRequest{Token: r.ToToken}); err != nil {
 		log.Printf("调用用户rpc检查用户：s%", err)

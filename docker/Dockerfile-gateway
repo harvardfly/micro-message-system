@@ -1,0 +1,7 @@
+FROM golang
+
+WORKDIR /src
+
+EXPOSE 8081
+COPY . .
+ CMD go run /src/gateway/cmd/api/gateway_api.go -f /src/gateway/cmd/config/config_api.json
