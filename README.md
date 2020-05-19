@@ -22,8 +22,11 @@
     IM消息发送服务 - produce消息到kafka 网关gate调用
     IM消息订阅服务 - 订阅kafka消息供websocket展示
 3. 网关：
-    调用rpc发送消息到kafka
+    调用userrpc验证用户token是否存在
+    调用imrpc发送消息到kafka
     获取并绑定用户与IM websocket服务地址
+4. Upload服务：
+    文件分块上传  api没有放到网关，避免网关流量过大
 ```
 ## 系统架构图：
 ![Image text](https://github.com/harvardfly/micro-message-system/blob/master/docs/IM%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg) 
@@ -94,4 +97,10 @@ go run api/gateway_api.go
 ## docker 方式运行
 ```$xslt
 详见 docker目录
+```
+
+## k8s 方式运行
+```$xslt
+详见 k8s目录
+sh batch_deploy.sh
 ```

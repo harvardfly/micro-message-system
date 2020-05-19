@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-upload
+  labels:
+    app: svc-upload
+spec:
+  ports:
+  - port: 8086
+    protocol: TCP
+    name: uploadrpc
+  - port: 28086
+    protocol: TCP
+    name: uploadrest
+  selector:
+    app: svc-upload
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: svc-upload
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-upload
+  template:
+    metadata:
+      labels:
+        app: svc-upload
+    spec:
+      containers:
+        - name: svc-upload
+          image: micro_uploadserver
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8086
+            name: uploadrpc
+          - containerPort: 28086
+            name: uploadrest
+          volumeMounts:
+            - mountPath: /src/uploadserver/*
+              name: file-volume
+      volumes:
+        - name: file-volume

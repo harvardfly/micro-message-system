@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-user
+  labels:
+    app: svc-user
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: userrpc
+  - port: 38080
+    protocol: TCP
+    name: userrest
+  selector:
+    app: svc-user
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: svc-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-user
+  template:
+    metadata:
+      labels:
+        app: svc-user
+    spec:
+      containers:
+        - name: svc-user
+          image: micro_userserver
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8083
+            name: userrpc
+          - containerPort: 38083
+            name: userrest
+          volumeMounts:
+            - mountPath: /src/userserver/*
+              name: file-volume
+      volumes:
+        - name: file-volume

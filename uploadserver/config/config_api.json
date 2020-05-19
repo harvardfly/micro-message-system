@@ -1,0 +1,15 @@
+{
+  "Version": "0.0.1",
+  "Port": ":8086",
+  "Server": {
+    "Name": "upload.api.server",
+    "RateLimit": 1000
+  },
+  "Etcd": {
+    "Address": [
+      "192.168.33.16:2379"
+    ],
+    "UserName": "",
+    "Password": ""
+  }
+}

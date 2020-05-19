@@ -1,0 +1,14 @@
+{
+  "Version": "0.0.1",
+  "Server": {
+    "Name": "upload.rpc.server",
+    "RateLimit": 1000
+  },
+  "Etcd": {
+    "Address": [
+      "192.168.33.16:2379"
+    ],
+    "UserName": "",
+    "Password": ""
+  }
+}

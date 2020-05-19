@@ -1,0 +1,6 @@
+FROM golang
+
+WORKDIR /src
+
+COPY . .
+ CMD go run /src/uploadserver/main.go -f /src/uploadserver/config/config_api.json

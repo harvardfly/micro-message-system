@@ -7,6 +7,7 @@ $ sudo docker build -t micro_userserver -f docker/Dockerfile-userserver .
 $ sudo docker build -t micro_imserver -f docker/Dockerfile-imserver .
 $ sudo docker build -t micro_websocket -f docker/Dockerfile-websocket .
 $ sudo docker build -t micro_gateway -f docker/Dockerfile-gateway .
+$ sudo docker build -t micro_uploadserver -f docker/Dockerfile-uploadserver .
 ```
 
 # 部署

@@ -21,6 +21,12 @@ services:
     image: micro_websocket:latest
     restart: always
 
+  uploadserver:
+    image: micro_uploadserver:latest
+    ports:
+      - "8086:8086"
+    restart: always
+
   web:
     image: micro_gateway:latest
     ports:
