@@ -1,7 +1,15 @@
 FROM golang
 
 WORKDIR /src
+COPY go.mod /src
+COPY go.sum /src
+
+ENV GOPROXY https://goproxy.io
+
+RUN go mod download
 
 EXPOSE 8081
+
 COPY . .
- CMD go run /src/gateway/cmd/api/gateway_api.go -f /src/gateway/cmd/config/config_api.json
+
+CMD go run ./gateway/cmd/api/gateway_api.go -f ./gateway/cmd/config/config_api.json

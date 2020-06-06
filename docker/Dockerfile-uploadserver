@@ -1,6 +1,13 @@
 FROM golang
 
 WORKDIR /src
+COPY go.mod /src
+COPY go.sum /src
+
+ENV GOPROXY https://goproxy.io
+
+RUN go mod download
 
 COPY . .
- CMD go run /src/uploadserver/main.go -f /src/uploadserver/config/config_api.json
+
+CMD go run /src/uploadserver/main.go -f /src/uploadserver/config/config_api.json

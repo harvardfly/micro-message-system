@@ -1,7 +1,15 @@
 FROM golang
 
 WORKDIR /src
+COPY go.mod /src
+COPY go.sum /src
+
+ENV GOPROXY https://goproxy.io
+
+RUN go mod download
 
 EXPOSE 7272
+
 COPY . .
- CMD go run /src/imserver/cmd/imconsumer/im_server.go -f /src/imserver/cmd/config/config_im_1.json
+
+CMD go run /src/imserver/cmd/imconsumer/im_server.go -f /src/imserver/cmd/config/config_im_1.json

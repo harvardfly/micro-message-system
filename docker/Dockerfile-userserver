@@ -1,6 +1,13 @@
 FROM golang
 
 WORKDIR /src
+COPY go.mod /src
+COPY go.sum /src
+
+ENV GOPROXY https://goproxy.io
+
+RUN go mod download
 
 COPY . .
- CMD go run /src/userserver/cmd/rpc/user_rpc.go -f /src/userserver/cmd/config/config_rpc.json
+
+CMD go run /src/userserver/cmd/rpc/user_rpc.go -f /src/userserver/cmd/config/config_rpc.json

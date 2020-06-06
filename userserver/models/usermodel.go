@@ -10,9 +10,9 @@ import (
 type (
 	Members struct {
 		Id         int64
-		Token      string    `json:"token" gorm:"varchar(11) notnull 'token'"`
-		Username   string    `json:"username" gorm:"varchar(60) notnull 'username'"`
-		Password   string    `json:"password" gorm:"varchar(60) notnull 'password'"`
+		Token      string     `json:"token" gorm:"varchar(11) notnull 'token'"`
+		Username   string     `json:"username" gorm:"varchar(60) notnull 'username'"`
+		Password   string     `json:"password" gorm:"varchar(60) notnull 'password'"`
 		CreateTime *time.Time `json:"create_time" gorm:"create_time"`
 		UpdateTime *time.Time `json:"update_time" gorm:"update_time"`
 	}
@@ -26,6 +26,11 @@ func NewMembersModel(mysql *gorm.DB) *MembersModel {
 	return &MembersModel{
 		mysql: mysql,
 	}
+}
+
+func GetDb() (db *gorm.DB, err error) {
+	db, err = gorm.Open("mysql", "root:123456@tcp(192.168.33.16:3306)/members?charset=utf8&parseTime=True&loc=Local")
+	return db, nil
 }
 
 func (m *MembersModel) FindByToken(token string) (*Members, error) {
@@ -58,4 +63,14 @@ func (m *MembersModel) InsertMember(member *Members) (*Members, error) {
 		return nil, err
 	}
 	return member, nil
+}
+
+func QueryUserWithCon() ([]Members, error) {
+	var members []Members
+	db, _ := GetDb()
+	if err := db.Find(&members).Error; err != nil {
+		return nil, err
+	}
+
+	return members, nil
 }
