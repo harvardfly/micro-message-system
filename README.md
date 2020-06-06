@@ -11,6 +11,7 @@
 6.web框架：gin  gorm
 7.数据库：mysql
 8.token认证：jwt-go
+9.搜索：ES
 ```
 
 ## 系统模块
