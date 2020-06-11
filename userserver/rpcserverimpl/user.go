@@ -3,6 +3,9 @@ package rpcserverimpl
 import (
 	"context"
 	"errors"
+	"fmt"
+	"github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go/log"
 
 	"micro-message-system/userserver/models"
 	userpb "micro-message-system/userserver/protos"
@@ -28,7 +31,13 @@ func NewUserRpcServer(useModel *models.MembersModel) *UserRpcServer {
 	return &UserRpcServer{useModel: useModel}
 }
 func (s *UserRpcServer) FindByToken(ctx context.Context, req *userpb.FindByTokenRequest, rsp *userpb.UserResponse) error {
+	span, _ := opentracing.StartSpanFromContext(ctx, "FindByToken")
+	defer span.Finish()
 	member, err := s.useModel.FindByToken(req.Token)
+	span.LogFields(
+		log.String("event", "checktoken"),
+		log.String("member", fmt.Sprintf("%v", member)),
+	)
 	if err != nil {
 		return ErrNotFound
 	}
