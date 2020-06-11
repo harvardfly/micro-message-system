@@ -12,6 +12,7 @@
 7.数据库：mysql
 8.token认证：jwt-go
 9.搜索：ES
+10.链路追踪：jaeger
 ```
 
 ## 系统模块
